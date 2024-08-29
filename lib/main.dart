@@ -12,10 +12,15 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme:ThemeData(
-          textTheme:GoogleFonts.geologicaTextTheme(),
-        ),
-        debugShowCheckedModeBanner: false,
-        home: const HomeScreen());
+      theme: ThemeData(
+        textTheme: GoogleFonts.geologicaTextTheme(),
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const HomeScreen(),
+      // routes: {
+      //   '/': (context) => const HomeScreen(),
+      //   // Add other routes here
+      // },
+    );
   }
 }

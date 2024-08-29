@@ -12,7 +12,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   font_awesome_flutter: ^10.7.0
   google_fonts: ^6.2.1
-
+  syncfusion_flutter_charts: ^26.2.10
 
 dev_dependencies:
   flutter_test:

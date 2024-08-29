@@ -1,11 +1,12 @@
 import 'package:downtime_frontend/data/infocard_data.dart';
 import 'package:downtime_frontend/view/components/auth_buttons.dart';
+import 'package:downtime_frontend/view/components/downtime_reason_chart.dart';
 import 'package:downtime_frontend/view/components/info_cards.dart';
-import 'package:downtime_frontend/view/components/search_bar.dart';
+import 'package:downtime_frontend/view/components/line_status_cards.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../components/chart_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,7 +16,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -55,87 +55,29 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 40,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Wrap(
+                // mainAxisAlignment: MainAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const LineStatusCards(),
+                  const SizedBox(width: 10,),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Line Status',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
+                      const Text(
+                        'Reason-Wise Stats',
+                        style: TextStyle(
+                          fontSize: 18,
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      CustomSearchBar(
-                        controller: controller,
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      ListView.builder(
-                        itemCount: 5,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: Container(
-                              height: 50,
-                              padding: const EdgeInsets.all(5),
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(8),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromARGB(255, 40, 51, 59)),
-                                  BoxShadow(
-                                      color: Color.fromARGB(255, 137, 137, 137))
-                                ],
-                                color: Color.fromARGB(255, 221, 240, 255),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 35,
-                                    width: 55,
-                                    alignment: Alignment.center,
-                                    decoration: const BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(8),
-                                      ),
-                                    ),
-                                    child: Text(
-                                      'Line ${index + 1}',
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 100,
-                                  ),Text('')
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      )
+                      const SizedBox(height: 10,),
+                      DowntimeReasonChart(),
                     ],
                   ),
-                  const Column(
-                    children: [],
-                  ),
                 ],
-              )
+              ),
+              const SizedBox(height: 30,),
+              const ChartView(),
             ],
           ),
         ),
