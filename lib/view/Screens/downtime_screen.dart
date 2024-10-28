@@ -61,7 +61,7 @@ class DowntimeRecordsScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 4),
-                          Text('Reason: ${record.reason ?? 'Unassigned'}'),
+                          Text('Reason: ${record.reason }'),
                           const SizedBox(height: 4),
                           Text('Duration: ${record.duration} minutes'),
                           const SizedBox(height: 4),

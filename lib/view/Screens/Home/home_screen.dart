@@ -5,7 +5,6 @@ import 'package:downtime_frontend/view/components/info_cards.dart';
 import 'package:downtime_frontend/view/components/line_status_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../components/chart_view.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
-    var screenWidth = MediaQuery.of(context).size.width;
+    // var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 20, 133, 203),
